@@ -1,0 +1,27 @@
+# 必要なライブラリをインポート
+import os
+import requests
+from bs4 import BeautifulSoup
+from selenium import webdriver
+
+# Webドライバーを起動
+driver = webdriver.Chrome()
+
+# Webページにアクセスする関数を定義
+def get_page(https://www.univcoop.or.jp/press/life/report.html):
+    driver.get(https://www.univcoop.or.jp/press/life/report.html)
+    return driver.page_source
+
+# 画像をダウンロードする関数を定義
+def download_image(https://www.univcoop.or.jp/press/life/images/report58_02img/img_report58_02_37.jpg, save_path):
+    response = requests.get(https://www.univcoop.or.jp/press/life/images/report58_02img/img_report58_02_37.jpg)
+    with open(save_path, 'wb') as f:
+        f.write(response.content)
+
+# 画像スクレイピングのメイン関数
+def image_scraping(https://www.univcoop.or.jp/press/life/report.html, save_folder):
+    # WebページにアクセスしてHTMLデータを取得
+    html = get_page(url)
+    
+    # BeautifulSoupを使ってHTMLを解析
+    soup = BeautifulSoup(html, 'html.parser')

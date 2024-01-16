@@ -1,0 +1,15 @@
+import pandas as pd
+
+df = pd.read_csv('dsp.numbers.csv',encoding='utf-8' header=0)
+
+print("そのまま表示")
+print(df)
+
+print("行と列を入れ替えて表示")
+print(df.T)
+
+print("行と列の数を表示")
+print(df.shape)
+
+print("１行ずつ表示")
+print(df.values)
